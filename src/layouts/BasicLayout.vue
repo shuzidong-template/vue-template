@@ -9,7 +9,8 @@
       <LayoutMenu :list="menus" />
     </a-layout-sider>
     <a-layout :style="{ marginLeft: '200px' }">
-      <a-layout-header :style="{ background: '#fff', padding: 0 }" />
+      <!-- <a-layout-header :style="{ background: '#fff', padding: 0 }" /> -->
+      <LayoutHeader />
       <a-layout-content :style="{ margin: '24px 16px 0', overflow: 'initial' }">
         <router-view />
       </a-layout-content>
@@ -21,12 +22,14 @@
 </template>
 <script>
 import LayoutMenu from "@/components/Menu/index.vue";
+import LayoutHeader from "@/components/Header/index.vue";
 import { mapGetters } from 'vuex';
 import mock from '../mock'
 export default {
   name: "BasicLayout",
   components: {
     LayoutMenu,
+    LayoutHeader
   },
   computed: {
     ...mapGetters(["getToken"])
