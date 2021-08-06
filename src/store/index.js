@@ -1,11 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import test from "./test";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  getters: {},
+  modules: {
+    test,
+  },
+  plugins: [createPersistedState({ storage: sessionStorage })],
 });

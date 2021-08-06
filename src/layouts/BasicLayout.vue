@@ -21,28 +21,28 @@
 </template>
 <script>
 import LayoutMenu from "@/components/Menu/index.vue";
+import { mapGetters } from 'vuex';
+import mock from '../mock'
 export default {
   name: "BasicLayout",
   components: {
     LayoutMenu,
   },
+  computed: {
+    ...mapGetters(["getToken"])
+  },
   data() {
     return {
       LogoSvg: require("@/assets/logo.svg"),
-      menus: [
-        {
-          key: "导航一",
-          value: "nav1",
-          icon: "user",
-        },
-        {
-          key: "导航二",
-          value: "nav2",
-          icon: "user",
-        },
-      ],
+      menus: [],
     };
   },
+  methods: {},
+  created() {
+    this.menus = mock.menus
+    console.log(this.getToken, 'test mapGetters')
+  },
+  mounted() {},
 };
 </script>
 <style lang="less">
